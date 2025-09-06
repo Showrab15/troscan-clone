@@ -2,10 +2,11 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
+import AnimatedGallery from "../Gallery/Gallery";
 
 export default function Aboutus() {
   const textVariants = {
-    hidden: { opacity: 0, y: 50 },
+    hidden: { opacity: 0, y: -50 },
     visible: (i) => ({
       opacity: 1,
       y: 0,
@@ -23,13 +24,13 @@ export default function Aboutus() {
   });
 
   // map the progress -> scale (1 -> 0.92 -> 1)
-  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.92, 1]);
+  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [1.2, 1, 1.2]);
 
   // optional small Y translation so the image feels a little parallax while zooming
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "-3%"]);
 
   return (
-    <section className="bg-[#f6e9e4] py-32 px-[16px] md:px-10">
+    <section className="bg-gradient-to-br from-amber-50 via-orange-50 to-rose-50 py-32 px-[16px] md:px-10">
       <div className="grid grid-cols-1 xl:grid-cols-2 xl:gap-10 gap-[10px] items-center">
         {/* Left Content */}
         <div className="xl:space-y-6 md:space-y-7 space-y-[10px]">
@@ -105,23 +106,28 @@ export default function Aboutus() {
             {/* motion.div is the inner content that scales/translates.
                 Only this element transforms — the outer container and layout remain unchanged. */}
             <motion.div
-              style={{ scale, y, transformOrigin: "center center", willChange: "transform" }}
-              className="absolute inset-0"
+              style={{
+                scale,
+                y,
+                transformOrigin: "center center",
+                willChange: "transform",
+              }}
+              className="absolute -inset-4"
             >
               {/* Next Image set to fill the parent so scaling happens inside the frame */}
               <Image
                 src="/aboutus.avif"
                 alt="Living Room Design"
                 fill
-               
                 style={{ objectFit: "cover", objectPosition: "center center" }}
                 priority={false}
-                 className="rounded-[5px]"
+                className="rounded-[5px]"
               />
             </motion.div>
           </div>
         </div>
       </div>
+      <AnimatedGallery />
     </section>
   );
 }
