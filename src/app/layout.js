@@ -17,7 +17,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${archivo.variable} font-sans`}
+        className={`${archivo.variable} font-sans bg-[rgb(248,237,227)]`}
       >
         <Navbar/>
         {children}
