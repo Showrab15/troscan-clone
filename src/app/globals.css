@@ -1,8 +1,11 @@
 @import "tailwindcss";
 
+/* globals.css */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --token-165a1e94-40d0-48dc-b562-2c1c2f928bb5: rgb(248, 237, 227);
+  --token-08690148-84ca-4ec2-9a16-ac4ed0577999: rgb(141, 73, 58);
+  --token-65983464-a28d-4c78-bdc6-1e3e5f04de85: rgb(255, 255, 255);
+  --token-01c686df-6652-4757-9e69-1d4a3390bded: rgba(248, 237, 227, 0.7);
 }
 
 @theme inline {
@@ -17,8 +20,13 @@
     --foreground: #ededed;
   }
 }
-
 body {
-  color: var(--foreground);
-  font-family: Archivo, "Archivo Placeholder", sans-serif;
+  background: linear-gradient(
+    135deg,
+    var(--token-165a1e94-40d0-48dc-b562-2c1c2f928bb5),
+    var(--token-01c686df-6652-4757-9e69-1d4a3390bded)
+  );
+  font-family: "Archivo", sans-serif;
+  margin: 0;
+  padding: 0;
 }
