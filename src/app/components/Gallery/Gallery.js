@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
+import Image from "next/image";
 import { useRef } from "react";
 
 const AnimatedGallery = () => {
@@ -137,7 +138,7 @@ const AnimatedGallery = () => {
   return (
     <section
       ref={containerRef}
-      className="mt-20 relative min-h-[150vh] overflow-hidden"
+      className="mt-20 relative xl:min-h-[180vh] overflow-hidden"
     >
       {/* Sticky container */}
       <div className="sticky top-0 mt-[60px] h-screen flex items-center justify-center">
@@ -161,10 +162,11 @@ const AnimatedGallery = () => {
                 }}
                 className="absolute w-64 h-80 rounded-2xl overflow-hidden shadow-2xl hover:shadow-3xl transition-shadow duration-300"
               >
-                <img
+                <Image
                   src={image.src}
                   alt={image.alt}
-                  className="w-full h-full object-cover"
+                  fill
+                  className="object-cover w-full h-full "
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
               </motion.div>

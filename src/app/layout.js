@@ -1,25 +1,26 @@
-import { Geist, Archivo , Geist_Mono } from "next/font/google";
-import "./globals.css";
+import { Archivo } from "next/font/google";
 import Navbar from "./components/Navbar/Navbar";
+import "./globals.css";
 
 const archivo = Archivo({
-  subsets: ['latin'],
-  variable: '--font-archivo',
-  display: 'swap',
-})
+  subsets: ["latin"],
+  variable: "--font-archivo",
+  display: "swap",
+});
 
 export const metadata = {
   title: "Troscan — Framer Clone",
-  description: "Skill assessment clone built with Next.js, Tailwind, Framer Motion",
+  description:
+    "Skill assessment clone built with Next.js, Tailwind, Framer Motion",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${archivo.variable} font-sans bg-[rgb(248,237,227)]`}
+        className={`${archivo.variable} font-sans bg-gradient-to-br from-amber-50 via-orange-50 to-rose-50`}
       >
-        <Navbar/>
+        <Navbar />
         {children}
       </body>
     </html>

@@ -11,7 +11,6 @@
   --font-sans: var(--font-archivo); /* 👈 map Tailwind to Archivo */
 }
 
-
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -20,7 +19,6 @@
 }
 
 body {
-  background: var(--background);
   color: var(--foreground);
   font-family: Archivo, "Archivo Placeholder", sans-serif;
 }

@@ -30,7 +30,7 @@ export default function Aboutus() {
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "-3%"]);
 
   return (
-    <section className="bg-gradient-to-br from-amber-50 via-orange-50 to-rose-50 py-32 px-[16px] md:px-10">
+    <section className=" py-32 px-[16px] md:px-10">
       <div className="grid grid-cols-1 xl:grid-cols-2 xl:gap-10 gap-[10px] items-center">
         {/* Left Content */}
         <div className="xl:space-y-6 md:space-y-7 space-y-[10px]">
