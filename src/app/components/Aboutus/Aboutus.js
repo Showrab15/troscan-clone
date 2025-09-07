@@ -40,7 +40,7 @@ export default function Aboutus() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="text-sm leading-[16px] font-normal  text-[#8D493A]"
+            className="text-sm leading-[16px] font-normal text-[#8D493A]"
           >
             • About us
           </motion.p>
@@ -51,7 +51,7 @@ export default function Aboutus() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className=" text-[38px] md:text-[50px] xl:text-[64px] leading-[1em] tracking-[-0.03em] text-left  font-normal text-[#8D493A] xl:leading-[64px]"
+            className=" text-[38px] md:text-[50px] xl:text-[64px] leading-[1em] tracking-[-0.03em] text-left font-normal text-[#8D493A] xl:leading-[64px]"
           >
             Where Spaces Inspire, and Design Comes Alive
           </motion.h2>
@@ -62,7 +62,7 @@ export default function Aboutus() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="xl:mt-20 text-[16px]  font-normal text-[#8D493A] leading-[22px]"
+            className="xl:mt-20 text-[16px] font-normal text-[#8D493A] leading-[22px]"
           >
             At Troscán, we believe that every space has a story to tell. As a
             premier furniture design and room decorating agency.
@@ -74,7 +74,7 @@ export default function Aboutus() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="text-[16px]  font-normal text-[#8D493A] leading-[22px]"
+            className="text-[16px] font-normal text-[#8D493A] leading-[22px]"
           >
             Our expert team blends timeless craftsmanship with innovative
             designs, ensuring each piece and layout reflects your unique taste
@@ -88,8 +88,7 @@ export default function Aboutus() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="text-[14px] bg-[#8b4b3b] text-[#F8EDE3] px-6 py-3 rounded-[5px]
-             font-medium hover:bg-[#723b2d] transition"
+            className="text-[14px] bg-[#8b4b3b] text-[#F8EDE3] px-6 py-3 rounded-[5px] font-medium hover:bg-[#723b2d] transition"
           >
             More About us
           </motion.button>
@@ -103,8 +102,7 @@ export default function Aboutus() {
             className="relative w-full h-[420px] md:h-[520px] lg:h-[560px] overflow-hidden"
             aria-hidden={false}
           >
-            {/* motion.div is the inner content that scales/translates.
-                Only this element transforms — the outer container and layout remain unchanged. */}
+            {/* motion.div is the inner content that scales/translates. Only this element transforms — the outer container and layout remain unchanged. */}
             <motion.div
               style={{
                 scale,

@@ -81,7 +81,7 @@ const AnimatedGallery = () => {
   const centerBottomY = useTransform(
     scrollYProgress,
     [0, 0.5, 1],
-    [0, 600, 500]
+    [0, 300, 500]
   );
 
   const rightTopX = useTransform(scrollYProgress, [0, 0.2, 0.2], [0, 300, 400]);
@@ -137,10 +137,10 @@ const AnimatedGallery = () => {
   return (
     <section
       ref={containerRef}
-      className="mt-20 relative min-h-[400vh] overflow-hidden"
+      className="mt-20 relative min-h-[150vh] overflow-hidden"
     >
       {/* Sticky container */}
-      <div className="sticky top-0 h-screen flex items-center justify-center">
+      <div className="sticky top-0 mt-[60px] h-screen flex items-center justify-center">
         <div className="relative w-full h-full flex items-center justify-center">
           {/* Animated Images */}
           {galleryImages.map((image, index) => {
