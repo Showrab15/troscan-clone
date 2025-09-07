@@ -2,7 +2,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
-import AnimatedGallery from "../Gallery/Gallery";
+import Gallery2 from "../Gallery/Gallery2";
 
 export default function Aboutus() {
   const textVariants = {
@@ -125,7 +125,7 @@ export default function Aboutus() {
           </div>
         </div>
       </div>
-      <AnimatedGallery />
+      <Gallery2 />
     </section>
   );
 }

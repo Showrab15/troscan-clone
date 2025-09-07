@@ -119,9 +119,9 @@ export default function Experties() {
 
         {/* RIGHT SIDE LIST */}
         <div className="flex flex-col space-y-2">
-          <h6 className="text-sm font-normal text-[#8D493A]">
+          <span className="text-[#8D493A] text-[14px] leading-[16px] font-medium">
             • Our Expertise
-          </h6>
+          </span>
           <h2
             className="font-[Archivo] text-[#8D493A] font-normal 
           tracking-[-0.03em] leading-[1em] text-left text-[38px] sm:text-[50px] 
@@ -130,7 +130,7 @@ export default function Experties() {
             Selecting the ideal elements to elevate your space
           </h2>
 
-          <ul className="space-y- 4 my-40">
+          <ul className="space-y- 4 lg:my-40">
             {items.map((item, index) => (
               <motion.li
                 key={item.id}
@@ -142,7 +142,7 @@ export default function Experties() {
               >
                 <div className="flex items-center gap-4">
                   <span
-                    className={` font-medium ${
+                    className={` font-normal ${
                       active === index ? "text-[#F8EDE3]" : "text-[#8D493A]"
                     }`}
                   >
