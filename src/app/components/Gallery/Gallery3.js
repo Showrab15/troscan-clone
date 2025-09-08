@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useMemo, useRef } from "react";
+import { useRef } from "react";
 
 const cards = [
   { src: "/centerbottom.avif" },
@@ -18,34 +18,93 @@ const STEP_OUT = 0.7;
 export default function HeroSplitScroll() {
   const sectionRef = useRef(null);
 
-  // Track scroll only inside this section
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start start", "end end"],
   });
 
-  // Spread distances (responsive)
-  const { spreadX, spreadY } = useMemo(() => {
-    if (typeof window !== "undefined" && window.innerWidth < 768) {
-      return { spreadX: 150, spreadY: 120 };
-    }
-    return { spreadX: 400, spreadY: 260 };
-  }, []);
+  // Hardcoded target positions (example, responsive logic can be added separately)
+  const targets = [
+    { x: -400, y: -260 },
+    { x: 0, y: -260 },
+    { x: 400, y: -260 },
+    { x: -400, y: 260 },
+    { x: 0, y: 260 },
+    { x: 400, y: 260 },
+  ];
 
-  // Final positions
-  const targets = useMemo(
-    () => [
-      { x: -spreadX, y: -spreadY },
-      { x: 0, y: -spreadY },
-      { x: spreadX, y: -spreadY },
-      { x: -spreadX, y: spreadY },
-      { x: 0, y: spreadY },
-      { x: spreadX, y: spreadY },
-    ],
-    [spreadX, spreadY]
+  // ✅ All useTransform calls at the top level
+  const x0 = useTransform(
+    scrollYProgress,
+    [0, STEP_IN, STEP_OUT, 1],
+    [0, 0, targets[0].x, targets[0].x]
+  );
+  const y0 = useTransform(
+    scrollYProgress,
+    [0, STEP_IN, STEP_OUT, 1],
+    [0, 0, targets[0].y, targets[0].y]
   );
 
-  // Text reveal
+  const x1 = useTransform(
+    scrollYProgress,
+    [0, STEP_IN, STEP_OUT, 1],
+    [0, 0, targets[1].x, targets[1].x]
+  );
+  const y1 = useTransform(
+    scrollYProgress,
+    [0, STEP_IN, STEP_OUT, 1],
+    [0, 0, targets[1].y, targets[1].y]
+  );
+
+  const x2 = useTransform(
+    scrollYProgress,
+    [0, STEP_IN, STEP_OUT, 1],
+    [0, 0, targets[2].x, targets[2].x]
+  );
+  const y2 = useTransform(
+    scrollYProgress,
+    [0, STEP_IN, STEP_OUT, 1],
+    [0, 0, targets[2].y, targets[2].y]
+  );
+
+  const x3 = useTransform(
+    scrollYProgress,
+    [0, STEP_IN, STEP_OUT, 1],
+    [0, 0, targets[3].x, targets[3].x]
+  );
+  const y3 = useTransform(
+    scrollYProgress,
+    [0, STEP_IN, STEP_OUT, 1],
+    [0, 0, targets[3].y, targets[3].y]
+  );
+
+  const x4 = useTransform(
+    scrollYProgress,
+    [0, STEP_IN, STEP_OUT, 1],
+    [0, 0, targets[4].x, targets[4].x]
+  );
+  const y4 = useTransform(
+    scrollYProgress,
+    [0, STEP_IN, STEP_OUT, 1],
+    [0, 0, targets[4].y, targets[4].y]
+  );
+
+  const x5 = useTransform(
+    scrollYProgress,
+    [0, STEP_IN, STEP_OUT, 1],
+    [0, 0, targets[5].x, targets[5].x]
+  );
+  const y5 = useTransform(
+    scrollYProgress,
+    [0, STEP_IN, STEP_OUT, 1],
+    [0, 0, targets[5].y, targets[5].y]
+  );
+
+  const scale = useTransform(
+    scrollYProgress,
+    [0, STEP_IN, STEP_OUT],
+    [1, 1, 0.97]
+  );
   const textOpacity = useTransform(
     scrollYProgress,
     [STEP_OUT * 0.95, 1],
@@ -53,41 +112,29 @@ export default function HeroSplitScroll() {
   );
   const textY = useTransform(scrollYProgress, [STEP_OUT, 1], [30, 0]);
 
+  const positions = [
+    { x: x0, y: y0 },
+    { x: x1, y: y1 },
+    { x: x2, y: y2 },
+    { x: x3, y: y3 },
+    { x: x4, y: y4 },
+    { x: x5, y: y5 },
+  ];
+
   return (
     <section ref={sectionRef} className="mb-10 relative h-[300vh] bg-[#f6efe8]">
-      {/* Sticky container */}
       <div className="sticky top-0 h-screen flex items-center justify-center">
         <div className="relative w-full h-full flex items-center justify-center">
-          {/* Images */}
-          {cards.map((card, i) => {
-            const x = useTransform(
-              scrollYProgress,
-              [0, STEP_IN, STEP_OUT, 1],
-              [0, 0, targets[i].x, targets[i].x]
-            );
-            const y = useTransform(
-              scrollYProgress,
-              [0, STEP_IN, STEP_OUT, 1],
-              [0, 0, targets[i].y, targets[i].y]
-            );
-            const scale = useTransform(
-              scrollYProgress,
-              [0, STEP_IN, STEP_OUT],
-              [1, 1, 0.97]
-            );
+          {cards.map((card, i) => (
+            <motion.img
+              key={i}
+              src={card.src}
+              alt={`card-${i}`}
+              style={{ x: positions[i].x, y: positions[i].y, scale }}
+              className="absolute w-[240px] md:w-[340px] rounded-2xl shadow-lg object-cover"
+            />
+          ))}
 
-            return (
-              <motion.img
-                key={i}
-                src={card.src}
-                alt={card.alt ?? card - `${i}`}
-                style={{ x, y, scale }}
-                className="absolute w-[240px] md:w-[340px] rounded-2xl shadow-lg object-cover"
-              />
-            );
-          })}
-
-          {/* Text appears after split */}
           <motion.div
             style={{ opacity: textOpacity, y: textY }}
             className="absolute max-w-[900px] px-6 text-center"

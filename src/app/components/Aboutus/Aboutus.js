@@ -2,7 +2,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
-import Gallery3 from "../Gallery/Gallery3";
 
 export default function Aboutus() {
   const textVariants = {
@@ -200,7 +199,7 @@ export default function Aboutus() {
         </div>
       </div>
       {/* <Gallery2 /> */}
-      <Gallery3 />
+      {/* <Gallery3 /> */}
     </section>
   );
 }
