@@ -155,15 +155,17 @@ export default function Banner() {
     <section className="relative h-screen flex items-center justify-center text-center overflow-hidden">
       {/* Background Image */}
       <div
-        className="absolute inset-0 bg-cover bg-center"
+        className=" absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage: "url('/Banner.avif')",
+          backgroundImage: "url('/Banner.jpg')",
         }}
       />
 
       {/* Deep dark overlay + gradient mask */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[rgba(0,0,0,0.85)]" />
-
+      <div
+        className="opacity-70 absolute inset-0 bg-gradient-to-b from-transparent
+       to-[#f8c67b]"
+      />
       {/* Content */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}

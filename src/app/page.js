@@ -4,6 +4,7 @@ import Blogs from "./components/Blogs/Blogs";
 import CallToAction from "./components/CallToAction/CallToAction";
 import Experties from "./components/Experties/Experties";
 import Footer from "./components/Footer/Footer";
+import Gallery4 from "./components/Gallery/Gallery4";
 import Projects from "./components/Projects/Projects";
 
 export default function Home() {
@@ -11,6 +12,7 @@ export default function Home() {
     <div>
       <Banner />
       <Aboutus />
+      <Gallery4 />
       <Projects />
       <Experties />
       <CallToAction />
