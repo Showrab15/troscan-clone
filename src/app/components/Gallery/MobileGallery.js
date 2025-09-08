@@ -24,7 +24,7 @@ const initialPositions = [
   { x: 80, y: 40 },
 ];
 
-// Desktop targets (original)
+// Animation for Big screen
 const desktopTargets = [
   { x: -400, y: -260 }, // top left
   { x: 0, y: -200 }, // top center
@@ -34,7 +34,7 @@ const desktopTargets = [
   { x: 400, y: 260 }, // bottom right
 ];
 
-// Mobile targets (3 above, 3 below text)
+// Animation for Mobile screen
 const mobileTargets = [
   { x: -100, y: -200 }, // top row left
   { x: 0, y: -100 }, // top row center
@@ -44,7 +44,7 @@ const mobileTargets = [
   { x: 100, y: 120 }, // bottom row right
 ];
 
-// Tablet targets (mix of desktop and mobile approach)
+// Animation for Medium screen
 const tabletTargets = [
   { x: -200, y: -200 }, // top left
   { x: 0, y: -120 }, // top center
