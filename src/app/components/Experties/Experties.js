@@ -203,7 +203,7 @@ export default function Experties() {
             Selecting the ideal elements to elevate your space
           </motion.h2>
 
-          <ul className="space-y- xl:my-40">
+          <ul className=" xl:my-40">
             {items.map((item, index) => (
               <motion.li
                 key={item.id}
