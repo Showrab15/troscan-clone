@@ -14,15 +14,15 @@ const projects = [
   {
     id: 2,
     image: "/projects2.avif",
-    title: "Modern Architectural Haven",
-    subtitle: "A blend of innovation and timeless design.",
+    title: "Luxurious Coastal Living",
+    subtitle: "Bringing the beauty of the shore into your home.",
     number: "02",
   },
   {
     id: 3,
     image: "/projects3.avif",
-    title: "Eco-Friendly Living",
-    subtitle: "Sustainability meets elegant lifestyle.",
+    title: "Modern Elegance in Every Room",
+    subtitle: "Redefining spaces with timeless style and innovation.",
     number: "03",
   },
 ];
@@ -48,21 +48,30 @@ function ProjectItem({ project, index, scrollYProgress, total }) {
       {/* Content */}
       <div
         style={{ zIndex: zIndex }}
-        className="absolute inset-0 flex flex-col items-center justify-center text-center px-6"
+        className="absolute inset-0 flex flex-col gap-2 items-center justify-center text-center px-6"
       >
-        <h6 className="mb-4 text-[16px] font-normal text-white leading-[22px]">
+        <h6 className="mb-6 text-[16px] font-normal text-white leading-[22px]">
           {project.number}
         </h6>
-        <h1 className="text-[40px] md:text-[64px] font-normal text-white leading-none md:leading-[64px]">
+        <h1
+          className={`text-[40px] md:text-[64px] font-normal text-white
+             leading-none md:leading-[64px] ${
+               project.id == 1
+                 ? "sm:max-w-2xl whitespace-nowrap"
+                 : "sm:max-w-xl"
+             }`}
+        >
           {project.title}
         </h1>
-        <p className="text-[16px] leading-[22px] font-normal text-white max-w-xl">
+
+        <p className="font-sans text-[16px] leading-[22px] font-normal text-white max-w-xl">
           {project.subtitle}
         </p>
-        <div className="mt-6 flex flex-wrap gap-4 justify-center">
+        <div className="mt-4 flex flex-wrap gap-4 justify-center">
           <Link
             href="#vision"
-            className="bg-[#f8ede3] text-[#8D493A] px-6 py-3 rounded-[5px] font-medium hover:bg-[#E6DCCA]"
+            className="cursor-pointer text-[16px] leading-[16px] bg-[#f8ede3] text-[#8D493A] px-[26px] py-[16px] rounded-[5px] 
+                       font-semibold hover:bg-[#E6DCCA]"
           >
             View Projects
           </Link>
@@ -80,7 +89,7 @@ export default function Projects() {
   });
 
   return (
-    <section ref={containerRef} className="relative h-[300vh] w-full">
+    <section ref={containerRef} className="mt-40  relative h-[300vh] w-full">
       <div className="-mt-[550px] sticky top-0 h-screen overflow-hidden">
         {projects.map((project, i) => (
           <ProjectItem

@@ -20,6 +20,12 @@
     --foreground: #ededed;
   }
 }
+@media (max-width: 390px) {
+  br.responsive-br {
+    display: none;
+  }
+}
+
 body {
   background: linear-gradient(
     135deg,

@@ -67,7 +67,7 @@ export default function Navbar() {
           <Link
             href="#contact"
             className="hidden lg:block bg-[#8d493a] text-[#F8EDE3] px-[26px] py-[10px] 
-            rounded-[5px] hover:bg-[#B85842] transition text-[16px] font-[600px]"
+            rounded-[5px] hover:bg-[#B85842] transition text-[16px] font-semibold will-change-transform"
           >
             Contact us
           </Link>
@@ -127,7 +127,8 @@ export default function Navbar() {
               </Link>
               <Link
                 href="#contact"
-                className="bg-[#8d493a] text-white px-6 py-2 rounded-md"
+                className="bg-[#8d493a] text-white px-6 py-2 
+                rounded-[5px] hover:bg-[#B85842] transition text-[16px] font-semibold will-change-transform"
                 onClick={() => setIsOpen(false)}
               >
                 Contact us
