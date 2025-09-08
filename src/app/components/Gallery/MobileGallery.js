@@ -95,7 +95,7 @@ function Card({ src, index, scrollYProgress, targets, isMobile }) {
   );
 }
 
-export default function MobileGallery() {
+export default function Gallery() {
   const sectionRef = useRef(null);
   const [screenSize, setScreenSize] = useState("desktop");
 
